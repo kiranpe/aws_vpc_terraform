@@ -1,6 +1,6 @@
+//Publiс routes
 ################
-# Publiс routes
-################
+
 resource "aws_route_table" "public" {
   count = var.create_vpc && length(var.public_subnets) > 0 ? 1 : 0
 
@@ -30,10 +30,9 @@ resource "aws_route" "public_internet_gateway" {
   }
 }
 
+//Private routes
 #################
-# Private routes
-# There are as many routing tables as the number of NAT gateways
-#################
+
 resource "aws_route_table" "private" {
   count = var.create_vpc && length(var.public_subnets) > 0 ? 1 : 0
 
