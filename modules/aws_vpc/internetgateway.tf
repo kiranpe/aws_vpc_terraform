@@ -1,6 +1,6 @@
+//Internet Gateway
 ###################
-# Internet Gateway
-###################
+
 locals {
   igw_tags = {
     Approver  = "Kiran Peddineni"
