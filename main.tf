@@ -54,14 +54,14 @@ module "vpc" {
   ###################
 
   public_subnet_suffix    = "public"
-  public_subnets          = ["10.0.0.0/26", "10.0.0.64/26", "10.0.0.128/26"]
+  public_subnets          = ["10.0.0.0/26", "10.0.0.64/26"]
   map_public_ip_on_launch = true
 
   //Private Subnet
   ##################
 
   private_subnet_suffix = "private"
-  private_subnets       = ["10.0.1.0/26", "10.0.1.64/26", "10.0.1.128/26"]
+  private_subnets       = ["10.0.0.128/26", "10.0.0.192/26"]
 
   //IGW
   ########
