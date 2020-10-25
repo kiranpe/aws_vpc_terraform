@@ -20,8 +20,6 @@ resource "aws_default_security_group" "security_group" {
     content {
       self             = lookup(ingress.value, "self", null)
       cidr_blocks      = compact(split(",", lookup(ingress.value, "cidr_blocks", "")))
-      ipv6_cidr_blocks = compact(split(",", lookup(ingress.value, "ipv6_cidr_blocks", "")))
-      prefix_list_ids  = compact(split(",", lookup(ingress.value, "prefix_list_ids", "")))
       security_groups  = compact(split(",", lookup(ingress.value, "security_groups", "")))
       description      = lookup(ingress.value, "description", null)
       from_port        = lookup(ingress.value, "from_port", 0)
@@ -35,8 +33,6 @@ resource "aws_default_security_group" "security_group" {
     content {
       self             = lookup(egress.value, "self", null)
       cidr_blocks      = compact(split(",", lookup(egress.value, "cidr_blocks", "")))
-      ipv6_cidr_blocks = compact(split(",", lookup(egress.value, "ipv6_cidr_blocks", "")))
-      prefix_list_ids  = compact(split(",", lookup(egress.value, "prefix_list_ids", "")))
       security_groups  = compact(split(",", lookup(egress.value, "security_groups", "")))
       description      = lookup(egress.value, "description", null)
       from_port        = lookup(egress.value, "from_port", 0)
