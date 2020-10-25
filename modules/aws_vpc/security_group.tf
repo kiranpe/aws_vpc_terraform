@@ -10,10 +10,10 @@ locals {
   }
 }
 
-resource "aws_default_security_group" "this" {
+resource "aws_default_security_group" "security_group" {
   count = var.create_vpc ? 1 : 0
 
-  vpc_id = aws_vpc.this[0].id
+  vpc_id = aws_vpc.vpc[0].id
 
   dynamic "ingress" {
     for_each = var.default_security_group_ingress
